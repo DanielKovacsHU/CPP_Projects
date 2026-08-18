@@ -1,1 +1,1 @@
-# The famous first project, says "Hello, World!".
+# The famous first project that say "Hello, World!".
