@@ -1,3 +1,1 @@
-# C++ Fundamentals
-
-C++ language fundamentals and exercises.
+# C++ language fundamentals and exercises.
