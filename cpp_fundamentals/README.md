@@ -1,6 +1,6 @@
 ## This folder is a collection of .cpp files documenting my progress while learning C++. Each file explores a concept, exercise, or small project, with a short description provided below.
 
-## Hello_World.cpp
+## hello_world.cpp
 ### The famous first project that say "Hello, World!" in the console / terminal.
 
 ## chapter_1_basics.cpp
