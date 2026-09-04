@@ -1,9 +1,9 @@
-// this project showcases in Learncpp Chapter 1 Basics
+// this project showcases some of what i learned in learncpp's Chapter 1 Basics
 
 #include <iostream>     // to use input/output functions
 #include <cmath>        // to do math
 
-// this is the simples calculator, asks 2 times for a number, shows the most common operations and their results
+// this is a simple calculator, asks 2 times for a number, than shows the most common operations and their results
 int main()
 {
     std::cout << "Enter the first number: ";
