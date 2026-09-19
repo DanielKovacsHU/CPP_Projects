@@ -1,4 +1,4 @@
-const int ledpin = 15;
+const int ledpin {15};
 
 void setup() 
 {
