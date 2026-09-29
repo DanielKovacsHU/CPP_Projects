@@ -5,6 +5,10 @@ For USB CDC serial ports (e.g. Serial on the Leonardo), Serial.begin() is irrele
 println :
 Prints data to the serial port as human-readable ASCII text followed by a carriage return character (ASCII 13, or '\r') and a newline character (ASCII 10, or '\n')
 
+Used a 10kohm external pulldown resistor as its a common value for this porpuse, ballanced choice between small resistance's increased current and high resistance's noise and leakage current tendency
+
+3.3V input voltage by the pico2w 3v3(out) pin
+
 ------------------------------------------------------------------------------------------------------------------------------
 # Only relevant if the input is not a stable 3.3V high value: 
 [e9 issue](https://pip-assets.raspberrypi.com/categories/1214-rp2350/documents/RP-008373-DS-2-rp2350-datasheet.pdf#page=1367&zoom=100,153,374)
