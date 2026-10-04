@@ -1,16 +1,108 @@
-# this is a pwm adjusted led project
+# PWM LED fade with a Raspberry Pi Pico 2 W
 
-# Calculation i used (same as blinking led project):
+A red LED fades up and down on a Raspberry Pi Pico 2 W. The sketch runs in the
+Arduino IDE and uses PWM on GP15 to drive the LED through a current-limiting
+resistor. Instead of switching the LED fully on and off, it sweeps the
+brightness from zero to full and back, then repeats.
 
-- max continuous forward current I_led = 20mA, will use 15mA so we have safety headroom
-- red led forward voltage at 15mA U_f = 2V (rough value)
-- pico output U_pin = 3.3V
+## Components and design
 
-to get the resistance required to met the 15mA is following :
+### Parts
 
-- 1, get the voltage drop in the resistor (U_pin - U_f)
-- 2, know the current through it, which is 15mA
-- 3, resistance by ohm's law the voltage drop of the component divided by the current through it so:
+- Raspberry Pi Pico 2 W
+- Red LED (about 2 V forward voltage at 15 mA, 20 mA maximum)
+- 100 ohm resistor
+- Breadboard
+- Jumper wire
+- USB cable
 
-- R_series = (U_pin - U_f) / I_led = (3.3V - 2V) / 0.015A = 86.66ohm
-- need to use the closest available alternative, so I will use a 100ohm resistor, which will gave around 13mA to the led, well below the maximum continous forward current
+### Electrical parameters
+
+| Symbol | Parameter | Value |
+| --- | --- | --- |
+| I_led (max) | Maximum continuous forward current | 20 mA |
+| I_led | Design target current | 15 mA |
+| U_f | LED forward voltage at 15 mA | 2 V |
+| U_pin | Pico output pin voltage | 3.3 V |
+
+### Resistor value
+
+The LED is not driven at its 20 mA limit. A target of 15 mA leaves some
+headroom. The resistor has to drop the difference between the pin voltage and
+the LED forward voltage.
+
+Voltage across the resistor:
+
+    U_R = U_pin - U_f = 3.3 V - 2 V = 1.3 V
+
+Current through the resistor:
+
+    I_led = 15 mA = 0.015 A
+
+Resistance from Ohm's law:
+
+    R = (U_pin - U_f) / I_led
+      = 1.3 V / 0.015 A
+      = 86.66 ohm
+
+The nearest common value is 100 ohm. With that resistor the current is:
+
+    I = (U_pin - U_f) / R = 1.3 V / 100 ohm = 0.013 A = 13 mA
+
+13 mA is below the 20 mA maximum, so the LED keeps a reasonable safety margin.
+That current is the value at full brightness (100% duty cycle). At lower duty
+cycles the average current is lower.
+
+## Circuit and code
+
+The LED anode (long leg) connects to GP15 through the 100 ohm resistor. The
+cathode (short leg) connects to GND.
+
+| Pico 2 W pin | Connects to |
+| --- | --- |
+| GP15 | 100 ohm resistor, then LED anode |
+| GND | LED cathode |
+
+![Circuit](images/circuit.png)
+
+### Duty cycle
+
+PWM turns the pin on and off many times per second. The duty cycle is the share
+of each cycle the pin spends on. analogWrite takes a value from 0 to 255: 0
+keeps the pin off (0%), 255 keeps it on (100%), and 128 is on about half the
+time (50%). Because the switching is faster than the eye can follow, the LED
+looks like it is at a steady brightness set by the average.
+
+The code ramps that value from 0 up to 255, then back down to 0, which is what
+creates the fade.
+
+```cpp
+const int ledpin {15};
+
+void setup() 
+{
+  pinMode(ledpin, OUTPUT); // gpio 15 as output
+}
+
+void loop() 
+{
+  for (int pwm {0}; pwm < 256; ++pwm) // loop for increasing the pwm value from 0 to 255 in 1 increments
+  {
+    analogWrite(ledpin, pwm); // output the duty cycle 0 is 0%, 255 is 100%
+    delay(4); // delay of 4ms
+  }
+
+  for (int pwm {255}; pwm >= 0; --pwm)  // loop for decreasing the pwm value from 255 to 0 in 1 increments
+  {
+    analogWrite(ledpin, pwm);  // output the duty cycle 0 is 0%, 255 is 100%
+    delay(4);  // delay of 4ms
+  }
+}
+```
+
+## Demo
+
+The LED fades up over about a second, fades back down over about a second, and
+repeats.
+
+[![Demo](media/demo.gif)](media/demo.mp4)
