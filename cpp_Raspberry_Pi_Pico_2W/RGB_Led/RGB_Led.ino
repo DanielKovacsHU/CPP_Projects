@@ -10,7 +10,7 @@ void setup()
 }
 
 
-// a void return function with 3 input arguments, where each is representing 1 legs pwn duty cycle
+// a void return function with 3 input arguments, where each is representing 1 legs pwm duty cycle
 void rgb(unsigned int red, unsigned int green, unsigned int blue)
 {
   analogWrite(redpin, red);  // write the input red leg duty cycle to the output
