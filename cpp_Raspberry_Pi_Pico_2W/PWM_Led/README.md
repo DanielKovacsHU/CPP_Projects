@@ -24,6 +24,9 @@ brightness from zero to full and back, then repeats.
 | I_led | Design target current | 15 mA |
 | U_f | LED forward voltage at 15 mA | 2 V |
 | U_pin | Pico output pin voltage | 3.3 V |
+| U_R | Voltage drop by the resistor | ? |
+| R | Current-limiting resistor value | ? |
+| I | Actual current on the led by the chosen resistor | ? |
 
 ### Resistor value
 
@@ -56,7 +59,7 @@ cycles the average current is lower.
 ## Circuit and code
 
 The LED anode (long leg) connects to GP15 through the 100 ohm resistor. The
-cathode (short leg) connects to GND.
+cathode (short leg) connects to GND with a jumper wire.
 
 | Pico 2 W pin | Connects to |
 | --- | --- |
@@ -105,4 +108,6 @@ void loop()
 The LED fades up over about a second, fades back down over about a second, and
 repeats.
 
-[![Demo](media/demo.gif)](media/demo.mp4)
+https://github.com/user-attachments/assets/e9ef990a-ec7d-4654-8220-ed35982c41a1
+
+
