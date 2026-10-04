@@ -67,6 +67,8 @@ cathode (short leg) connects to GND with a jumper wire.
 ### Image of the circuit
 <img width="750" height="500" alt="led_blink" src="https://github.com/user-attachments/assets/5b8465ab-72c6-4363-bc79-f432b16436c0" />
 
+### Code:
+
 The code is short enough to read in full, and the comments explain each line.
 
 ```cpp
