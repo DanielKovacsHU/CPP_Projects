@@ -63,10 +63,12 @@ cathode (short leg) connects to GND with a jumper wire.
 
 | Pico 2 W pin | Connects to |
 | --- | --- |
-| GP15 | 100 ohm resistor, then LED anode |
-| GND | LED cathode |
+| 20 (GP15) | 100 ohm resistor, then LED anode |
+| 23 (GND) | jumper wire, then LED cathode |
 
-![Circuit](images/circuit.png)
+### Image of the circuit
+
+<img width="750" height="500" alt="led_pwm" src="https://github.com/user-attachments/assets/f0868231-8eff-4180-b024-493b18b90057" />
 
 ### Duty cycle
 
