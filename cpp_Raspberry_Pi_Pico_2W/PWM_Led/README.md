@@ -24,6 +24,9 @@ brightness from zero to full and back, then repeats.
 | I_led | Design target current | 15 mA |
 | U_f | LED forward voltage at 15 mA | 2 V |
 | U_pin | Pico output pin voltage | 3.3 V |
+| U_R | Voltage drop by the resistor | ? |
+| R | Current-limiting resistor value | ? |
+| I | Actual current on the led by the chosen resistor | ? |
 
 ### Resistor value
 
@@ -56,16 +59,19 @@ cycles the average current is lower.
 ## Circuit and code
 
 The LED anode (long leg) connects to GP15 through the 100 ohm resistor. The
-cathode (short leg) connects to GND.
+cathode (short leg) connects to GND with a jumper wire.
 
 | Pico 2 W pin | Connects to |
 | --- | --- |
-| GP15 | 100 ohm resistor, then LED anode |
-| GND | LED cathode |
+| 20 (GP15) | 100 ohm resistor, then LED anode |
+| 23 (GND) | LED cathode |
 
-![Circuit](images/circuit.png)
+### Image of the circuit:
 
-### Duty cycle
+<img width="750" height="500" alt="led_pwm" src="https://github.com/user-attachments/assets/7d46c4a8-2fab-41da-a26e-62b431297573" />
+
+### Code:
+#### Duty cycle
 
 PWM turns the pin on and off many times per second. The duty cycle is the share
 of each cycle the pin spends on. analogWrite takes a value from 0 to 255: 0
@@ -105,4 +111,8 @@ void loop()
 The LED fades up over about a second, fades back down over about a second, and
 repeats.
 
-[![Demo](media/demo.gif)](media/demo.mp4)
+
+
+https://github.com/user-attachments/assets/75f2faed-f742-43aa-9d13-5bad814d8dc8
+
+
