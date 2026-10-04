@@ -94,7 +94,7 @@ goes to GND with a jumper wire.
 
 <img width="750" height="500" alt="led_rgb_1" src="https://github.com/user-attachments/assets/5c3386cd-bade-4636-b41a-3f3a911a6d30" />
 
-
+### Code:
 Each leg is driven with PWM, so the duty cycle sets that leg's brightness. The
 helper function writes all three legs at once, and the three loops in `loop()`
 raise one leg while lowering another to slide between colors.
