@@ -86,7 +86,7 @@ void setup()
   Serial.begin(1); // can use any value except 1200 which enters bootsel mode
 }
 
-std::string last_state {"LOW"}; // std::string is the modern cpp class for variable lenght strings
+std::string last_state {"LOW"}; // std::string is the modern cpp class for variable length strings
 
 void loop() 
 {
@@ -98,7 +98,7 @@ void loop()
   }
 
 
-  // resets the last_sate to "low" if the previous value was "high" and the button was released (reads LOW), (no need to assign "low", if its already "low")
+  // resets the last_state to "low" if the previous value was "high" and the button was released (reads LOW), (no need to assign "low", if its already "low")
   if (digitalRead(pin) == LOW && last_state == "HIGH")
   {
     last_state = "LOW";
