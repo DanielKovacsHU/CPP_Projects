@@ -62,7 +62,7 @@ Blue:
                   = (3.3 V - 3 V) / 0.02 A
                   = 15 ohm
 
-The nearest value available is again 100 ohm (the smaller 10 ohm resistor would push the current to 30mA above the limit), which is much larger than required. Assuming a 15% drop, the blue forward voltage is about 2.55 V, so the current becomes::
+The nearest value available is again 100 ohm (the smaller 10 ohm resistor would push the current to 30mA above the limit), which is much larger than required. Assuming a 15% drop, the blue forward voltage is about 2.55 V, so the current becomes:
 
     I_blue = (U_pin - U_f_blue) / R_series_blue
            = (3.3 V - 2.55 V) / 100 ohm
@@ -132,7 +132,7 @@ void loop()
 
   delay(500);
 
-  // red stay, green dimmer, blue brigher (Red - Blue)
+  // red stay, green dimmer, blue brighter (Red - Blue)
   for (int greenblue_index {0}; greenblue_index < 256; ++greenblue_index)
   {
     rgb(255, 255 - greenblue_index, greenblue_index);
@@ -159,7 +159,7 @@ briefly on each step before repeating.
 
 https://github.com/user-attachments/assets/21a2a2ff-e691-44dd-8f63-a81ec17dcf73
 
-For better visualization i used a folded paper as a light diffuser, showcasing the 3 blended color of yellow, cyan and magenta
+For better visualization I used a folded paper as a light diffuser, showcasing the 3 blended color of yellow, cyan and magenta
 
 https://github.com/user-attachments/assets/a51dcc8d-16c0-4efd-8957-60abadaa0acd
 
