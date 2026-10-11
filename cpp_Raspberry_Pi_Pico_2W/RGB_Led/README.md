@@ -77,6 +77,8 @@ Green uses the same numbers as blue:
 Both blue and green run at about 7.5 mA, which is far below the 20 mA maximum, so
 those two legs are much dimmer than red. Balancing the brightness would need
 smaller resistors on the blue and green legs, smaller than 100 ohm but bigger than 15 ohm.
+### Schematic
+<img width="791" height="346" alt="rgb_led" src="https://github.com/user-attachments/assets/a437cced-a4ca-4de6-bc0c-9cbfba6840a1" />
 
 ## Circuit and code
 
