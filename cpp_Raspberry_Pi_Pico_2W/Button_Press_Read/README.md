@@ -36,6 +36,10 @@ current. The 3.3 V comes from the Pico 2 W 3V3(OUT) pin.
 The pin is set to plain INPUT rather than INPUT_PULLDOWN, because the pulldown
 is provided externally by that resistor.
 
+### Schematic
+<img width="426" height="126" alt="button_read" src="https://github.com/user-attachments/assets/1a80979e-8864-4677-a0c1-024e325b7894" />
+
+
 ### Serial port
 
 On the Pico 2 W, `Serial` is the USB CDC (Communication Device Class) port and
