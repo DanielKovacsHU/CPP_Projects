@@ -56,6 +56,10 @@ The nearest common value is 100 ohm. With that resistor the current is:
 That current is the value at full brightness (100% duty cycle). At lower duty
 cycles the average current is lower.
 
+### Schematic
+<img width="438" height="148" alt="pwm_led" src="https://github.com/user-attachments/assets/0bb372d5-5a9e-415f-8c07-7c471a2bf6da" />
+
+
 ## Circuit and code
 
 The LED anode (long leg) connects to GP15 through the 100 ohm resistor. The
