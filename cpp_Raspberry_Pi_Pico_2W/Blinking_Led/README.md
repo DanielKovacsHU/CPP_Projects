@@ -53,6 +53,9 @@ The nearest common value is 100 ohm. With that resistor the current is:
 
 13 mA is below the 20 mA maximum, so the LED keeps a reasonable safety margin
 and is still clearly visible.
+### Schematic
+<img width="438" height="148" alt="led_blink" src="https://github.com/user-attachments/assets/ac3d772d-cafe-43b6-93b8-12e1ea490238" />
+
 
 ## Circuit and code
 
