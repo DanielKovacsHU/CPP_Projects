@@ -75,11 +75,13 @@ sits between GP15 and GND.
 
 ### Schematic
 
-[Schematic image]
+<img width="429" height="273" alt="tilt switch" src="https://github.com/user-attachments/assets/83c3ef46-7685-4b22-b70c-a0baa1300bdb" />
+
 
 ### Assembled circuit
 
-[Assembled circuit image]
+<img width="600" height="452" alt="circuit" src="https://github.com/user-attachments/assets/e1da9fff-8b80-4017-961e-1cfd096938fe" />
+
 
 ### The code:
 
@@ -141,4 +143,11 @@ void loop()
 
 Shows a brief shake being ignored, then a held tilt and a return to upright each printing one message.
 
-[Demo video]
+https://github.com/user-attachments/assets/d29609d0-df90-45b6-ad0d-224a57611702
+
+Small note: it seems like the tilt back closed position sensing is taking longer than the opening tilt motion. This might be true, because the usb cdc printing out can add latency. I tested the internal correctness and timing by printing out times, it's working exactly as planed, each change is taking at least 500ms time. The image shows the start time of the new input and the end time its considered a true signal.
+
+<img width="295" height="230" alt="Arduino_IDE_RrNm9nkbZE" src="https://github.com/user-attachments/assets/c92d9456-2ed0-4ed0-b721-0b86dac97188" />
+
+
+
