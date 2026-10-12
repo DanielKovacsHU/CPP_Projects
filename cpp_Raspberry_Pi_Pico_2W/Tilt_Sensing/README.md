@@ -62,6 +62,10 @@ Moved that way, the ball floats instead of settling. In testing the float lasted
 
 A normal shake, or the ball settling on its own, is over in tens of milliseconds; the float is the slow case that sets the number.
 
+### Schematic
+
+<img width="429" height="273" alt="tilt switch" src="https://github.com/user-attachments/assets/83c3ef46-7685-4b22-b70c-a0baa1300bdb" />
+
 ## Circuit and code
 
 The tilt switch sits between the 3V3(OUT) pin and GP15. The 10k ohm resistor
@@ -72,10 +76,6 @@ sits between GP15 and GND.
 | 36 (3V3(OUT)) | One side of the tilt switch |
 | 20 (GP15) | Other side of the tilt switch, and one end of the 10k ohm resistor |
 | 18 (GND) | Other end of the 10k ohm resistor |
-
-### Schematic
-
-<img width="429" height="273" alt="tilt switch" src="https://github.com/user-attachments/assets/83c3ef46-7685-4b22-b70c-a0baa1300bdb" />
 
 
 ### Assembled circuit
